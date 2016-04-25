@@ -56,11 +56,6 @@ CREATE TABLE IF NOT EXISTS coaches (
   PRIMARY KEY (coach_id)
 );
 
-INSERT INTO coaches (user_name, first_name, last_name, sport, email) VALUES
-('1coach', 'blah', 'blah', 'soccer', 'blah@mail.umw.edu'),
-('2coach', 'blah', 'blah', 'basketball', 'blah@mail.umw.edu'),
-('3coach', 'blah', 'blah', 'lacross', 'blah@mail.umw.edu');
-
 CREATE TABLE IF NOT EXISTS trainers (
   trainer_id SERIAL NOT NULL,
   user_name text NOT NULL references users(user_name),
@@ -69,11 +64,6 @@ CREATE TABLE IF NOT EXISTS trainers (
   email text NOT NULL,
   PRIMARY KEY (trainer_id)
 );
-
-INSERT INTO trainers (user_name, first_name, last_name, email) VALUES
-('1trainer', 'blah', 'blah', 'blah@mail.umw.edu'),
-('2trainer', 'blah', 'blah', 'blah@mail.umw.edu'),
-('3trainer', 'blah', 'blah', 'blah@mail.umw.edu');
 
 CREATE TABLE IF NOT EXISTS students (
   student_id SERIAL NOT NULL,
