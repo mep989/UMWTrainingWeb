@@ -1,0 +1,137 @@
+Commands
+
+#This is where our prototype is found.
+https://www.justinmind.com/usernote/tests/19253405/19253408/19253410/index.html
+
+#For starting postgres and logging in as localhost:
+
+sudo service postgresql start
+psql -U postgres -h localhost
+
+#password is "cats123"
+
+#For accessing our website's database:
+\c umw_training;
+
+#website's role for login:
+#user = website, password = umw16p91V2Hkl8m9
+
+#needed for after we add postgres to AWS (adds ability to hash passwords):
+#info found at: https://www.youtube.com/watch?v=c-gFZ71CjUw&index=10&list=PLuZfoSIficQvVN44F1emhKAF-1KIoRcok
+#about 15 min in... though the whole thing is useful
+
+sudo apt-get update
+sudo apt-get install postgresql-contrib-9.3
+
+#While in the database you want hashing to take place:
+create extension pgcrypto; 
+
+#adding a new user with password encrypted:
+insert into users values ('ggreene', crypt('hispassword', gen_salt('bf')));
+select * from users;
+
+#when user logs in website checks if password is goood:
+select * from users where password = crypt('hispassword', password) and username = 'ggreene';
+
+-----------------
+FROM THE BOOK ---
+-----------------
+
+Postgresql Commands
+
+\q      quit
+\l or \list       list all databases
+\c pets        change into a database  
+\d or \dt      
+\d dogs
+\d+ dogs
+\i charts.sql
+DESC table_name;
+DROP DATABASE charts
+SELECT * FROM topSongs
+
+sudo service postgresql start
+psql -U postgres -h localhost
+
+\password music123
+
+create role missmusic with login
+grant select on dogs to swift;
+revoke all on dogs from swift;
+grant all on dogs to swift;
+alter role petman with login;
+\du
+create role swift;
+
+
+
+CREATE DATABASE pets;
+
+CREATE TABLE dogs (
+name VARCHAR(35),
+breed VARCHAR(50),
+owner VARCHAR(50));
+
+INSERT INTO dogs VALUES ('Roper', 'Border Collie', 'Adam');
+
+##<input type="text" id="state" name="state" size="20" />
+
+
+————
+From Book
+————
+CREATE DATABASE michaels_list;
+
+CREATE TABLE doughnut_list
+(
+	doughnut_cost DEC(3,2) NOT NULL DEFAULT 1.00
+);
+
+SELECT * FROM my_contacts WHERE first_name = ‘Anna’;
+
+SELECT drink_name, main, second FROM easy_drinks WHERE main = ‘soda’;
+
+SELECT location FROM doughnut_ratings WHERE type = ‘plain glazed’ AND rating = 10;
+
+equal            =
+not equal     <>
+less than       <
+greater than  >
+LT or equal   <=
+GT or equal  >=
+
+SELECT drink_name FROM drink_info WHERE calories IS NULL;
+
+SELECT * FROM my_contacts WHERE location LIKE ‘%CA’;
+
+Any number  %
+Single char    _
+
+SELECT drink_name FROM drink_info WHERE calories BETWEEN 30 AND 60;
+
+SELECT date_name FROM black_book WHERE rating IN (‘innovative’, ‘fabulous’, ‘delightful’, ‘pretty good’);
+
+SELECT date_name FROM black_book WHERE rating NOT IN (‘innovative’, ‘fabulous’, ‘delightful’, ‘pretty good’);
+
+SELECT date_name from black_book WHERE NOT date_name LIKE ‘A%’ AND NOT date_name LIKE ‘B%’;
+
+DELETE FROM clown_info WHERE activities = 'dancing';
+
+UPDATE doughnut_ratings SET type = ‘glazed’ WHERE type = ‘plain glazed’;
+
+UPDATE your_table SET first_column = 'newvalue', second_column = 'another_value';
+
+ATOMIC data has been broken down into the smallest pieces of data that can’t or shouldn’t be divided.
+
+FIRST NORMAL FORM or 1NF: Each row of data must contain atomic values and each row of data must have a unique identifier, known as a Primary Key.
+
+A primary key is a column in your table that makes each record unique.
+
+CREATE TABLE my_contacts 
+(
+	contact_id INT NOT NULL AUTO_INCREMENT,
+	some_column varchar(30) default NULL,
+	another_column INT default NULL,
+	PRIMARY KEY (contact_id)
+)
+

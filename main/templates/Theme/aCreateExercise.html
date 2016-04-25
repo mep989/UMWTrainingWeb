@@ -1,0 +1,122 @@
+{% include "topBar.html" %} {% block siteTitle %}
+<title> UMW Training - Exercises </title> {% endblock %}
+
+
+<!-- this line is magical -->
+{% include "adminSideMenu.html" -%}
+
+
+
+<!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+<!--main content start-->
+<section id="main-content">
+    <section class="wrapper site-min-height">
+        <h3><i class="fa fa-angle-right"></i> Create Exercise </h3>
+        <div class="row mt">
+            <div class="col-lg-12">
+
+                <form method="post" , action="/aCreateExercise">
+                    <center>
+                        <table style="color:white; background-color: #5496cf; border: 1px solid lightgrey;">
+                            <tr>
+                                <td style="padding-top: 10px; padding-bottom: 10px; border: 1px solid lightgrey;">
+                                    <center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</center>
+                                </td>
+                                <td style="padding-top: 10px; padding-bottom: 10px; border: 1px solid lightgrey;">
+                                    <center>&nbsp;&nbsp;Muscle Group&nbsp;&nbsp;</center>
+                                </td>
+                                <td style="padding-top: 10px; padding-bottom: 10px; border: 1px solid lightgrey;">
+                                    <center>&nbsp;&nbsp;Description&nbsp;&nbsp;</center>
+                                </td>
+                                <td style="padding-top: 10px; padding-bottom: 10px; border: 1px solid lightgrey;">
+                                    <center>&nbsp;&nbsp;Youtube Embed Link&nbsp;&nbsp;</center>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="color:black; background-color: white; padding-top: 10px; padding-bottom: 10px; border: 1px solid lightgrey;">
+                                    <input type="text" name="ename" style="margin-left: 10px; margin-right: 10px;" maxlength="20">
+                                </td>
+                                <td style="color:black; background-color: white; padding-top: 10px; padding-bottom: 10px; border: 1px solid lightgrey;">
+                                    <center>
+                                        <!--Brittany Raze changed the muscle group drop-down menu options-->
+                                        <select name="emusclegroup" value="Muscle Groups">
+                                            <option value="Upper Body">Upper Body</option>
+                                            <option value="Lower Body">Lower Body</option>
+                                            <option value="Core">Core</option>
+                                            <option value="Olympic Lift">Olympic Lift</option>
+                                            <option value="Plyometric">Plyometric</option>
+                                        </select>
+                                    </center>
+                                </td>
+                                <td style="color:black; background-color: white; padding-top: 10px; padding-bottom: 10px; border: 1px solid lightgrey;">
+                                    <textarea rows="4" cols="30" name="edesc" style="margin-left: 10px; margin-right: 10px;"></textarea>
+                                </td>
+                                <td style="color:black; background-color: white; padding-top: 10px; padding-bottom: 10px; border: 1px solid lightgrey;">
+                                    <input type="text" name="eyoutube" style="margin-left: 10px; margin-right: 10px;">
+                                </td>
+                            </tr>
+                        </table>
+                        <br>
+                        <a href="/aExercisesPage">
+                            <input type="submit" value="Submit">
+                            <br>
+                            <br>
+                        </a>
+                        </br>
+                        {% if badName %}
+                        <p style="color:red">Error: Exercise name cannot be blank or match the name of an already existing exercise.</p>
+                        {% endif %} {% if exerciseCreated %}
+                        <p style="color:black">Exercise Created!</p>
+                        {% endif %}
+                    </center>
+                </form>
+
+            </div>
+        </div>
+
+    </section>
+    <! --/wrapper -->
+</section>
+<!-- /MAIN CONTENT -->
+
+<!--main content end-->
+<!--footer start-->
+<footer class="site-footer">
+    <div class="text-center">
+        2016 - UMW Training Program
+        <a href="aCreateExercise" class="go-top">
+            <i class="fa fa-angle-up"></i>
+        </a>
+    </div>
+</footer>
+<!--footer end-->
+</section>
+
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+<script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="assets/js/jquery.scrollTo.min.js"></script>
+<script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+
+
+<!--common script for all pages-->
+<script src="assets/js/common-scripts.js"></script>
+
+<!--script for this page-->
+
+<script>
+    //custom select box
+
+    $(function() {
+        $('select.styled').customSelect();
+    });
+</script>
+
+</body>
+
+</html>

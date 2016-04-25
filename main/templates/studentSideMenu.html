@@ -1,0 +1,113 @@
+<html>
+<head>
+
+ <!-- **********************************************************************************************************************************************************
+      MAIN SIDEBAR MENU
+      *********************************************************************************************************************************************************** -->
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+              
+                  <!--THIS IS WHERE THE EAGLE PICTURE GOES-->
+              	  <p class="centered"><a href="/sHome"><img src="static/img/Eagle Picture.jpg" class="img-circle" width="100"></a></p>
+              	  
+              	  {% block usernameOnMenu %} <!-- placeholder in template for usernames so those variables can stay in their own files -->
+                   <!--THIS IS WHERE THE USER'S NAME GOES-->
+                   {% for name in Name %}
+                       <h5 class="centered">{{name[0]}} {{name[1]}}</h5>
+                   {% endfor %}              	  
+    
+              	  {% endblock %}
+              	  
+              	  <!-- Homepage Menu Option -->
+                  <li class="mt">
+                      <a class="active" href="/sHome">
+                          <i class="fa fa-home"></i>
+                          <span>Homepage</span>
+                      </a>
+                  </li>
+
+                  <!-- Calendar Menu Option -->
+                  <li class="mt">
+                      <a href="/aCalendar" >
+                          <i class="fa fa-calendar"></i>
+                          <span>Calendar</span>
+                      </a>
+                  </li>
+                  
+                  <!-- Exercises Menu Option -->
+                  <li class="mt">
+                      <a href="/aExercises" >
+                          <i class="fa fa-thumbs-up"></i>
+                          <span>Exercises</span>
+                      </a>
+                  </li>
+                  
+                  <!-- Workouts Menu Option -->
+                  <li class="mt">
+                      <a href="/aWorkouts" >
+                          <i class="fa fa-heart"></i>
+                          <span>Workouts</span>
+                      </a>
+                  </li>
+                  
+                  <li class="mt">
+                      <a href="/aTrainingPrograms" >
+                          <i class="fa fa-trophy"></i>
+                          <span>Training Programs</span>
+                      </a>
+                  </li>
+                  
+                  <!-- Add User Menu Option -->
+                  <li class="mt">
+                      <a href="/aAddUser" >
+                          <i class="fa fa-book"></i>
+                          <span>Add User</span>
+                      </a>
+                  </li>
+                  
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-tasks"></i>
+                          <span>View Student Data</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="">Pre-Training Answers</a></li>
+                          <li><a  href="">Training Program Stats</a></li>
+                      </ul>
+                  </li>
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+<!-- this is a file Michelle is trying to make as the template for the admin menu so we don't have to keep repeating it across files -->
+
+      <!--footer start-->
+      {% block footer %}
+      <footer class="site-footer">
+          <div class="text-center">
+              2016 - UMW Training Program
+              {% block goUp %}  {% endblock %}
+                  <i class="fa fa-angle-up"></i>
+              </a>
+          </div>
+      </footer>
+      <!--footer end-->
+        {% endblock %}
+
+
+        <script src="assets/js/common-scripts.js"></script>
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/jquery-1.8.3.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="static/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="static/js/jquery.scrollTo.min.js"></script>
+    <script src="static/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="static/js/jquery.sparkline.js"></script>
+
+</head>
+</html>
+

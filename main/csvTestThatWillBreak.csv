@@ -1,0 +1,5 @@
+Username, Last Name, First Name, Sport, Year, Email, One Rep Max
+Dragongirl, Desormeaux, Michelle,No,2016,michelledesormeaux@gmail.com, 1
+rando1, random,guy,soccer,2016,email@email.com, 25
+wrongNumCols,stuff,123,lkj,no
+wrongFormat, L4st N4m3, F1rst N4me, sp0rt, year, thingWithout@, notANumber

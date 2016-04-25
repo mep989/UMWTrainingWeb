@@ -1,0 +1,31 @@
+Okay. So.
+
+git status
+//To see if git even exists in the directory you're in
+//This will also show you what hasn't been committed to the repo yet
+
+
+git add -A
+//This will add all files that have been modified but not pushed or saved to the repo yet.
+
+
+git commit -m "my git commit message here"
+//This is how you give git the package of files or whatever you just added and kinda wraps it in a bundle to push to git. 
+
+
+git push origin master
+//This is how you push to git. I have no idea if it works differently for collaborators vs the one who started the git.
+
+
+git pull origin master
+//This is how you pull from git. I'm not sure if we need to do this since cloud9 already saves the changes.
+
+
+//The git config stuff
+I think you just need to use your own github login, but this is how I configured git when I said "git init".
+The username git knows about is: 430Train
+
+the email that git knows about is: mdesorme@mail.umw.edu
+
+Britt's Username: braze9
+Britt's Password: SoccerGirl9
